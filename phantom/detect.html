@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=240,initial-scale=1">
+<style>
+.info {
+        background-color: #ffffff;
+}
+</style>
+</head>
+<body>
+<button onclick="clicked()">click</button>
+<div class="info">Phantom:</div>
+<div class="info" id="phantom">info here</div>
+
+<script>
+function clicked() {
+  const getProvider = () => {
+    if ('phantom' in window) {
+      const provider = window.phantom?.solana;
+
+      if (provider?.isPhantom) {
+        document.getElementById("phantom").innerHTML='Phantom is detected'
+      }
+    }
+
+  };
+
+  getProvider()
+
+}
+</script>
+</body>
+</html>
